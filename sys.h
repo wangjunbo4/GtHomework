@@ -3,13 +3,10 @@
  * @Author: Gtylcara
  * @Github: https://github.com/wangjunbo4
  * @Date: 2021-11-10 19:31:28
- * @LastEditors: Gtylcara
- * @LastEditTime: 2021-11-10 20:40:01
+ * @LastEditors: Gtylcara.
+ * @LastEditTime: 2021-11-10 23:39:50
  * @FilePath: \Homework\sys.h
  */
-
-
-
 
 #ifndef _SYS_H_
 #define _SYS_H_

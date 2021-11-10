@@ -1,13 +1,26 @@
+-- add rules: debug/release
 add_rules("mode.debug", "mode.release")
 
+-- define target
 target("Homework")
+
+    -- set kind
     set_kind("static")
+
+    -- add files
+    add_files("list.cpp")
     add_files("sys.cpp")
 
+-- define target
 target("main")
+
+    -- set kind
     set_kind("binary")
+
+    -- add files
     add_files("main.cpp")
 
+    -- add deps
     add_deps("Homework")
 
 --
