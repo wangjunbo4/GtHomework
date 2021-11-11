@@ -32,9 +32,9 @@
 + static void push_back(Node *head, Node *data) 
 + static void push_here(Node *node, Node *data) 
 + static Node<Ts...>* push_front(Node *head, Node *data) 头插，返回新头
-+ static void modify(Node *node) 修改
-+ static void del(Node *node) 删除
-+ static void search(Ts..., int index) 查找
++ static void modify(Node *node, std::tuple<Ts...> data) 修改
++ static void del(Node *head, Node* node) 删除
++ static Node<Ts...>* search(Node *head, int index, T content) 查找
 
 // TODO:
 
