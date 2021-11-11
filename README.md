@@ -32,13 +32,14 @@
 + static void push_back(Node *head, Node *data) 
 + static void push_here(Node *node, Node *data) 
 + static Node<Ts...>* push_front(Node *head, Node *data) 头插，返回新头
++ static void modify(Node *node) 修改
++ static void del(Node *node) 删除
++ static void search(Ts..., int index) 查找
 
 // TODO:
 
 + static void sort(Node *head) 排序
-+ static void modify(Node *node) 修改
-+ static void del(Node *node) 删除
-+ static void search(Ts..., int index) 查找
+
 
 
 ### file - 模板化文件读写
