@@ -25,14 +25,20 @@
 + Node() 无参数构造
 + Node(Ts... args) 接受数据的构造
 + Node(Node *next, Ts... args) 初始化next成员的构造
++ inline void setNext(Node *next) 设置next节点
 + void print() 打印当前对象数据
 + static void printAll(Node *head) 从head打印之后的所有数据
++ static inline void setSeperator(std::string s) 设置打印分隔符（默认"\t\t\t"）
 + static void push_back(Node *head, Node *data) 
 + static void push_here(Node *node, Node *data) 
 + static Node<Ts...>* push_front(Node *head, Node *data) 头插，返回新头
+
+// TODO:
+
 + static void sort(Node *head) 排序
 + static void modify(Node *node) 修改
 + static void del(Node *node) 删除
 + static void search(Ts..., int index) 查找
-+ static inline void setSeperator(std::string s) 设置打印分隔符（默认"\t\t\t"）
-+ inline void setNext(Node *next) 设置next节点
+
+
+### file - 模板化文件读写
