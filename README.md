@@ -2,7 +2,7 @@
  * @Author: Gtylcara.
  * @Date: 2021-11-11 23:55:57
  * @LastEditors: Gtylcara.
- * @LastEditTime: 2021-11-12 00:30:26
+ * @LastEditTime: 2021-11-12 00:33:43
 -->
 # GtHomework
 
@@ -25,9 +25,9 @@
 + void waitOption() 等待和捕获键盘输入
 + void cls() 清屏
 ### list - 可变参链表模板类
-### Util
+#### Util
 + tuple_index(const std::tuple<T...> &tpl, size_t i) 访问元组tpl中的第i个元素
-### Node
+#### Node
 + Node() 无参数构造
 + Node(Ts... args) 接受数据的构造
 + Node(Node *next, Ts... args) 初始化next成员的构造
