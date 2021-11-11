@@ -4,7 +4,7 @@
  * @Github: https://github.com/wangjunbo4
  * @Date: 2021-11-10 20:55:37
  * @LastEditors: Gtylcara
- * @LastEditTime: 2021-11-11 15:54:13
+ * @LastEditTime: 2021-11-11 21:32:35
  * @FilePath: \Homework\list.h
  */
 
@@ -22,10 +22,17 @@ constexpr std::variant<T...> _tuple_index(const std::tuple<T...> &tpl, size_t i)
 template <typename... T>
 constexpr std::variant<T...> tuple_index(const std::tuple<T...> &tpl, size_t i);
 
-template <typename T0, typename... Ts>
-std::ostream &operator<<(std::ostream &s, std::variant<T0, Ts...> const &v);
+template <typename T, typename... Ts>
+std::ostream &operator<<(std::ostream &s, std::variant<T, Ts...> const &v);
 
+template <typename T, typename... Ts>
+bool operator==(std::variant<T, Ts...> const &v, std::string s);
 
+template <typename T, typename... Ts>
+bool operator==(std::variant<T, Ts...> const &v, int i);
+
+template <typename T, typename... Ts>
+bool operator==(std::variant<T, Ts...> const &v, double d);
 
 template<typename... Ts>
 class Node
@@ -35,6 +42,9 @@ public:
     Node();
     Node(Ts... args);
     Node(Node *next, Ts... args);
+    inline void setNext(Node *next) { this->next = next; }
+    void print();
+    inline std::tuple<Ts...> getData() { return data; }
     
     static void printAll(Node *head);
     static void push_back(Node *head, Node *data);
@@ -43,13 +53,31 @@ public:
     // return the new head of the list
     static Node<Ts...>* push_front(Node *head, Node *data);
     static void sort(Node *head);
-    static void modify(Node *node);
-    static void del(Node *node);
-    static void search(Ts..., int index);
+    static void modify(Node *node, std::tuple<Ts...> data);
+    static void del(Node *head, Node* node);
+    
     static inline void setSeperator(std::string s) { seperator = s; }
 
-    inline void setNext(Node *next) { this->next = next; }
-    void print();
+
+    /*
+        head: head of the list you want to search
+        index: the number of the tuple to storge one pack of data, start from 0
+        content: the content you want to search, must be the same type as you searched from tuple 
+    */
+    template<typename T>
+    static Node<Ts...>* search(Node *head, int index, T content)
+    {
+        while (head != nullptr)
+        {
+            if (tuple_index(head->data, index) == content)
+            {
+                return head;
+            }
+
+            head = head->next;
+        }
+    }
+    
 
     Node *next = nullptr;
 
@@ -97,6 +125,36 @@ Node<Ts...>* Node<Ts...>::push_front(Node *head, Node *data)
         return data;
     }
 }
+
+template<typename... Ts>
+void Node<Ts...>::modify(Node *node, std::tuple<Ts...> data)
+{
+    this->data = std::move(data);
+}
+
+
+template<typename... Ts>
+void Node<Ts...>::del(Node *head, Node* node)
+{
+    if (head == nullptr)
+        return;
+    
+    if (head == node)
+        free(node);
+
+    auto pre = head;
+    auto after = head->next;
+
+    while (after != node)
+    {
+        pre = pre->next;
+        after = after->next;
+    }
+
+    pre->next = after->next;
+    free(after);
+}
+
 
 template<typename... Ts>
 void Node<Ts...>::printAll(Node *head)
@@ -156,13 +214,44 @@ constexpr std::variant<T...> tuple_index(const std::tuple<T...> &tpl, size_t i)
     return _tuple_index<0>(tpl, i);
 }
 
-template <typename T0, typename... Ts>
-std::ostream &operator<<(std::ostream &s, std::variant<T0, Ts...> const &v)
+template <typename T, typename... Ts>
+std::ostream &operator<<(std::ostream &s, std::variant<T, Ts...> const &v)
 {
     std::visit([&](auto &&x) { 
         s << x; 
     }, v);
     return s;
 }
+
+template <typename T, typename... Ts>
+bool operator==(std::variant<T, Ts...> const &v, std::string s)
+{
+    std::string s2;
+    std::visit([&](auto &&x) { 
+        s2 = std::move(x);
+    }, v);
+    return s == s2;
+}
+
+template <typename T, typename... Ts>
+bool operator==(std::variant<T, Ts...> const &v, int i)
+{
+    int i2 = 0;
+    std::visit([&](auto &&x) { 
+        i2 = std::move(x);
+    }, v);
+    return i == i2;
+}
+
+template <typename T, typename... Ts>
+bool operator==(std::variant<T, Ts...> const &v, double d)
+{
+    double d2;
+    std::visit([&](auto &&x) { 
+        d2 = std::move(x);
+    }, v);
+    return d == d2;
+}
+
 
 #endif 
