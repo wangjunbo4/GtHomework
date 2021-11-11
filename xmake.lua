@@ -1,3 +1,14 @@
+--[[
+Description: 
+Author: Gtylcara
+Github: https://github.com/wangjunbo4
+Date: 2021-11-10 20:16:34
+LastEditors: Gtylcara
+LastEditTime: 2021-11-11 12:51:39
+FilePath: \Homework\xmake.lua
+--]]
+
+set_languages("c++20")
 -- add rules: debug/release
 add_rules("mode.debug", "mode.release")
 
