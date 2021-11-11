@@ -1,17 +1,12 @@
 --[[
-Description: 
-Author: Gtylcara
-Github: https://github.com/wangjunbo4
-Date: 2021-11-10 20:16:34
-LastEditors: Gtylcara
-LastEditTime: 2021-11-11 12:51:39
-FilePath: \Homework\xmake.lua
+Author: Gtylcara.
+Date: 2021-11-12 00:18:03
+LastEditors: Gtylcara.
+LastEditTime: 2021-11-12 00:19:32
 --]]
-
-set_languages("c++20")
 -- add rules: debug/release
 add_rules("mode.debug", "mode.release")
-
+set_languages("c++20")
 -- define target
 target("Homework")
 
@@ -21,6 +16,7 @@ target("Homework")
     -- add files
     add_files("list.cpp")
     add_files("sys.cpp")
+    add_files("file.cpp")
 
 -- define target
 target("main")

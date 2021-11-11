@@ -1,3 +1,9 @@
+<!--
+ * @Author: Gtylcara.
+ * @Date: 2021-11-11 23:55:57
+ * @LastEditors: Gtylcara.
+ * @LastEditTime: 2021-11-12 00:30:26
+-->
 # GtHomework
 
 一个可能没有什么用的各种管理系统大作业库，致力于30行完成一个大作业   
@@ -43,3 +49,9 @@
 
 
 ### file - 模板化文件读写
+
+#### File - 文件读写类
+// TODO:
++ static std::tuple<Ts...> read(std::string path) 读
++ static void write(std::string path, Ts... data) 写
+static void write(std::string path, std::tuple<Ts...> data) 写
