@@ -2,7 +2,7 @@
  * @Author: Gtylcara.
  * @Date: 2021-11-11 23:55:57
  * @LastEditors: Gtylcara.
- * @LastEditTime: 2021-11-12 00:33:43
+ * @LastEditTime: 2021-11-12 00:35:16
 -->
 # GtHomework
 
@@ -54,4 +54,4 @@
 // TODO:
 + static std::tuple<Ts...> read(std::string path) 读
 + static void write(std::string path, Ts... data) 写
-static void write(std::string path, std::tuple<Ts...> data) 写
++ static void write(std::string path, std::tuple<Ts...> data) 写
