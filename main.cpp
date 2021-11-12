@@ -3,8 +3,8 @@
  * @Author: Gtylcara
  * @Github: https://github.com/wangjunbo4
  * @Date: 2021-11-10 19:46:50
- * @LastEditors: Gtylcara.
- * @LastEditTime: 2021-11-12 00:12:26
+ * @LastEditors: Gtylcara
+ * @LastEditTime: 2021-11-12 19:15:38
  * @FilePath: \Homework\main.cpp
  */
 
@@ -16,14 +16,13 @@
 // define the type you need, and you will be more easily to call it
 typedef Node<long long, std::string, std::string, int, int> myNode;
 
-auto data3 = new myNode(3, "push_back", "class", 12345, 100);
 auto data2 = new myNode(2, "child1", "class", 12345, 100);
 auto data1 = new myNode(data2, 1, "head", "class", 12345, 100);
 
+auto data3 = new myNode(3, "push_back", "class", 12345, 100);
 auto data4 = new myNode(4, "push_here", "class", 12345, 100);
 auto data5 = new myNode(5, "push_front", "class", 12345, 100);
 auto head = data1;
-
 using namespace std;
 
 int main()
