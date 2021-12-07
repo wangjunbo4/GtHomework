@@ -2,7 +2,7 @@
  * @Author: Gtylcara.
  * @Date: 2021-11-11 23:58:54
  * @LastEditors: Gtylcara
- * @LastEditTime: 2021-11-12 22:49:07
+ * @LastEditTime: 2021-12-07 16:53:05
  */
 
 #ifndef _FILE_OPT_H_
@@ -20,7 +20,7 @@ template <typename... Ts>
 class File
 {
 public:
-    static std::tuple<Ts...> read(std::string path);
+    static std::vector<std::string> read(std::string path);
     static void write(std::string path, Ts... data);
     static void write(std::string path, std::tuple<Ts...> data);
 
@@ -28,8 +28,10 @@ private:
     static inline char seperator = ' ';
 };
 
+
+// 我 投 降
 template <typename... Ts>
-std::tuple<Ts...> File<Ts...>::read(std::string path)
+std::vector<std::string> File<Ts...>::read(std::string path)
 {
     std::ifstream ifs;
     ifs.open(path, std::ios::in);
@@ -40,16 +42,14 @@ std::tuple<Ts...> File<Ts...>::read(std::string path)
         
         std::istringstream iss(s);
         std::vector<std::string> sv(sizeof...(Ts));
-        std::tuple<Ts...> t;
         std::string buffer;
-        
+    
         while (std::getline(iss, buffer, seperator))
         {
-            std::cout << buffer;
             sv.emplace_back(buffer);
         }
     }
-    return std::tuple<Ts...>();
+    return sv;
 }
 
 template <typename... Ts>

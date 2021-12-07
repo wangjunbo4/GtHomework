@@ -3,8 +3,8 @@
  * @Author: Gtylcara
  * @Github: https://github.com/wangjunbo4
  * @Date: 2021-11-10 20:55:37
- * @LastEditors: Gtylcara.
- * @LastEditTime: 2021-11-12 00:04:34
+ * @LastEditors: Gtylcara
+ * @LastEditTime: 2021-12-07 16:51:15
  * @FilePath: \Homework\list.h
  */
 
@@ -15,7 +15,6 @@
 #include <cstddef>
 #include <tuple>
 #include <variant>
-
 
 
 template<typename... Ts>

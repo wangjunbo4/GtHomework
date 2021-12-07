@@ -3,8 +3,8 @@
  * @Author: Gtylcara
  * @Github: https://github.com/wangjunbo4
  * @Date: 2021-11-10 19:31:28
- * @LastEditors: Gtylcara.
- * @LastEditTime: 2021-11-12 00:05:16
+ * @LastEditors: Gtylcara
+ * @LastEditTime: 2021-12-07 16:26:43
  * @FilePath: \Homework\sys.h
  */
 
@@ -40,6 +40,9 @@ bool operator==(std::variant<T, Ts...> const &v, int i);
 
 template <typename T, typename... Ts>
 bool operator==(std::variant<T, Ts...> const &v, double d);
+
+// template <typename... Ts>
+// std::tuple<Ts...> operator=(std::vector<std::string> vs);
 
 typedef void (*callback)();
 
@@ -132,5 +135,10 @@ bool operator==(std::variant<T, Ts...> const &v, double d)
     return d == d2;
 }
 
+// template <typename... Ts>
+// std::tuple<Ts...> std::tuple<Ts...>::operator=(std::vector<std::string> vs)
+// {
+
+// }
 
 #endif
